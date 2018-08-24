@@ -5,18 +5,20 @@ var client = new Client();
 
 
 router.get('/', function (req, res, next) {
+    console.log('Came here')
     client.get("http://localhost:3030/projects", function (jsonData, response) {
         // parsed response body as js object
-        console.log(jsonData);
+        console.log('got res')
+        console.log('==>>>' +jsonData);
     
         // raw response
-        console.log(response);
-        res.render('projects', { 
-            title: 'Projects', 
-            navProjects: true, 
-            showFooter: true, 
-            projects: jsonData.data
-        });
+        console.log('++'+response);
+        // res.render('projects', { 
+        //     title: 'Projects', 
+        //     navProjects: true, 
+        //     showFooter: true, 
+        //     projects: jsonData.data
+        // });
     });
 });
   

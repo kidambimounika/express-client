@@ -3,7 +3,7 @@ var md5 = require('js-md5');
 var router = express.Router();
 var Client = require('node-rest-client').Client;
 var client = new Client();
-var apiUrl = "http://localhost:3030/";
+var apiUrl = "http://localhost:3030";
 
 // function checkUser(userid, password, callback){
 //   var collection = db.collection('users');
