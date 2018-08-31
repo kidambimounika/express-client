@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var hbs = require('hbs');
 var index = require('./routes/index');
 var projects = require('./routes/projects');
+var blog = require('./routes/blog');
 var admin = require('./routes/admin');
 
 var app = express();
@@ -35,6 +36,7 @@ app.use(auth.authenticated);
 
 app.use('/', index);
 app.use('/projects', projects);
+app.use('/blog',blog);
 app.use('/admin', auth.authenticate, admin);
 
 

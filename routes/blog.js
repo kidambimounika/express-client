@@ -7,13 +7,13 @@ var request = require('request');
 
 router.get('/', function (req, res, next) {
     console.log('Came here')
-    request('http://localhost:3030/projects',function(err,response,body){
+    request('http://localhost:3030/blogs',function(err,response,body){
         console.log(JSON.parse(body).data)
-        res.render('projects', { 
-                 title: 'Projects', 
+        res.render('blog', { 
+                 title: 'blog', 
                  navProjects: true, 
-                 showFooter: true, 
-                 projects: JSON.parse(body).data
+                 showFooter: true,
+                 blog: JSON.parse(body).data
              });
     })
     // client.get("http://localhost:3030/projects", function (jsonData, response) {
@@ -33,7 +33,7 @@ router.get('/', function (req, res, next) {
 });
   
 router.get('/:projectAlias', function (req, res, next) {
-    request.get("http://localhost:3030/projects/",function(err,response,body){
+    request.get("http://localhost:3030/blogs/",function(err,response,body){
         console.log(JSON.parse(body).data)
     
          //function (jsonData, response) {
@@ -42,11 +42,11 @@ router.get('/:projectAlias', function (req, res, next) {
             // raw response
              //console.log(response);
 
-            res.render('project-detail', { 
-                title: 'project-detail' ,
+            res.render('blogs-detail', { 
+                title: 'blogs.name' ,
                 navProjects: true, 
                 showFooter: true, 
-                project: JSON.parse(body).data
+                blog: JSON.parse(body).data
             });
         });
 });
